@@ -1,1 +1,14 @@
-# washingmachine-analysis
+# Do students tend to different behaviours when doing their laundry?
+
+## Installation and Prerequisits
+- Clone this repo with `git clone git@github.com:lenardrommel/washingmachine-analysis.git`
+  - You may have to [generate SSH keys](https://kinsta.com/blog/generate-ssh-key/): `ssh-keygen -t ed25519 -C "firstname.lastname@student.uni-tuebingen.de"`if you cannot clone the repo
+  - Important: Do not enter a passphrase when generating the SSH keys, this will simplify the setup
+  - Important: Do not use `sudo` when creating the keys, otherwise the keys will be stored in the root directory (`/root/.ssh/` and not in your home directory `~/.ssh/`)
+  - Add them to your GitHub account [here](https://github.com/settings/keys) by following [these steps](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+    - You may have to add github.com to the list of known hosts if you set up a new machine. You can do that by cloning a random repo, such as: `git clone git@github.com:jbeder/yaml-cpp.git`, and accepting the fingerprint (you won't need this repo afterwards).
+- Move to the repo: `cd washingmachine-analysis`
+- Activate the environment with `conda activate base`
+
+## Analyzing the data
+- we put everything in a jupyter notebook
