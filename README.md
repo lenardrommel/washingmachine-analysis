@@ -3,6 +3,8 @@
 
 A group project for [Philipp Hennig's](https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/methoden-des-maschinellen-lernens/personen/philipp-hennig/) lecture "Data Literacy" at the University of Tuebingen.
 
+Full report: https://www.overleaf.com/read/fxhfdfpqspwd#384f75
+
 ## Abstract
 We aim to analyze a self-gathered dataset of the washing machine usage of Judith's student dormitory.
 This dataset encompasses occupant names, floor levels, occupancy times, and the specific washing machines used within the dormitory for the past 365 days. 
