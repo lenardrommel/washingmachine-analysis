@@ -1,5 +1,6 @@
 # Do students tend to different behaviours when doing their laundry?
 (C) 2023-2024 Judith Henkel, Nalin Puvendran, Lenard Rommel and Kevin Weiss
+A group project for Phillip Hennig's lecture "Data Literacy" at the University of Tuebingen.
 
 ## Abstract
 We aim to analyze a self-gathered dataset of the washing machine usage of Judith's student dormitory.
