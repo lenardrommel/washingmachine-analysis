@@ -78,8 +78,8 @@ def plot_avg_washing_time(female_avg_hrs, male_avg_hrs):
 
     ax.axhline(0.75, color=rgb.tue_dark, alpha=0.5)
     ax.yaxis.set_visible(False)
-    ax.axvline(mean_female, 0.5, 1, color=rgb.tue_red, alpha=1, label=f"mean female: {mean_female:.2f}")
-    ax.axvline(mean_male, 0, 0.49, color=rgb.tue_blue, alpha=1, label=f"mean male:    {mean_male:.2f}")
+    ax.axvline(mean_female, 0.51, 1, color=rgb.tue_red, alpha=1, label=f"mean female: {mean_female:.2f}")
+    ax.axvline(mean_male, 0, 0.5, color=rgb.tue_blue, alpha=1, label=f"mean male:    {mean_male:.2f}")
     ax.legend(loc='center right', framealpha=1.0, facecolor='white', edgecolor='black')
     fig.savefig(plots_path + "AverageWashingTime.pdf")
     fig.savefig(plots_path + "AverageWashingTime.png")
