@@ -65,7 +65,6 @@ def plot_avg_washing_time(female_avg_hrs, male_avg_hrs):
         female_avg_hrs, 1 + 0.5 * u_f, "o", label=f"{nbr_fml} female students", color=rgb.tue_red, alpha=0.5,
         mec="none", ms=4
     )
-
     ax.plot(
         male_avg_hrs, 0.5 * u_m, "o", label=f"{nbr_ml} male students", color=rgb.tue_blue, alpha=0.5, mec="none", ms=4
     )
