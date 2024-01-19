@@ -46,7 +46,7 @@ def plot_avg_washing_time(female_avg_hrs, male_avg_hrs):
     nbr_ml = len(male_avg_hrs)
 
     fig, ax = plt.subplots()
-    ax.set_title("Average washing time")
+    ax.set_title("Average Washing Time")
     ax.set_xlabel("hours per week")
 
     mean_female = np.mean(female_avg_hrs)
@@ -65,7 +65,7 @@ def plot_avg_washing_time(female_avg_hrs, male_avg_hrs):
         female_avg_hrs, 1 + 0.5 * u_f, "o", label=f"{nbr_fml} female students", color=rgb.tue_red, alpha=0.5,
         mec="none", ms=4
     )
-    
+
     ax.plot(
         male_avg_hrs, 0.5 * u_m, "o", label=f"{nbr_ml} male students", color=rgb.tue_blue, alpha=0.5, mec="none", ms=4
     )
@@ -91,7 +91,7 @@ def plot_avg_washing_time_against_total_active_time(female_avg_hrs, male_avg_hrs
     nbr_ml = len(male_avg_hrs)
 
     fig, ax = plt.subplots()
-    ax.set_title("Average washing time per week")
+    ax.set_title("Average Washing Time")
     ax.set_xlabel("hours per week")
     ax.set_ylabel("active time (in weeks)")
 
