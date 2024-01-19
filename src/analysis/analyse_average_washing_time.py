@@ -143,7 +143,7 @@ def plot_avg_washing_time_against_total_active_time(female_avg_hrs, male_avg_hrs
 
 def plot_comparison_of_avg_washing_time(fml_avg_hrs, ml_avg_hrs):
     fig, ax = plt.subplots()
-    ax.set_title("Direct Comparison of avg. Washing Time")
+    ax.set_title("Comparison of Washing Machine Utilization Rate")
     ax.set_xlabel("hours per week")
     ax.set_ylabel("percentage")
     nbr_females = len(fml_avg_hrs)
@@ -166,11 +166,13 @@ def plot_comparison_of_avg_washing_time(fml_avg_hrs, ml_avg_hrs):
 
     ax.bar(categories, values_females, color=rgb.tue_red, alpha=0.25, label="female")
     ax.bar(categories, values_males, color=rgb.tue_blue, alpha=0.25, label="male")
-    ax.tick_params(axis='x', labelsize=6)
+    ax.tick_params(axis='x', labelsize=6, rotation=50)
     ax.legend(loc='upper right')
 
-    fig.savefig(plots_path + "comparison_avg_washing_time.pdf")
-    fig.savefig(plots_path + "comparison_avg_washing_time.png")
+    plt.tight_layout()
+
+    fig.savefig(plots_path + "Comparison_Utilization_Rate.pdf")
+    fig.savefig(plots_path + "Comparison_Utilization_Rate.png")
 
 
 def permutation_test(female_avg_hrs, male_avg_hrs, operation, num_permutations=10000):
