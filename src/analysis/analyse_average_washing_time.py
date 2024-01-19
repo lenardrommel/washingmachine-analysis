@@ -46,7 +46,7 @@ def plot_avg_washing_time(female_avg_hrs, male_avg_hrs):
     nbr_ml = len(male_avg_hrs)
 
     fig, ax = plt.subplots()
-    ax.set_title("Average Washing Time")
+    ax.set_title("Washing Machine Utilization Rate")
     ax.set_xlabel("hours per week")
 
     mean_female = np.mean(female_avg_hrs)
@@ -81,8 +81,8 @@ def plot_avg_washing_time(female_avg_hrs, male_avg_hrs):
     ax.axvline(mean_female, 0.51, 1, color=rgb.tue_red, alpha=1, label=f"mean female: {mean_female:.2f}")
     ax.axvline(mean_male, 0, 0.5, color=rgb.tue_blue, alpha=1, label=f"mean male:    {mean_male:.2f}")
     ax.legend(loc='center right', framealpha=1.0, facecolor='white', edgecolor='black')
-    fig.savefig(plots_path + "AverageWashingTime.pdf")
-    fig.savefig(plots_path + "AverageWashingTime.png")
+    fig.savefig(plots_path + "WashingMachineUtilizationRate.pdf")
+    fig.savefig(plots_path + "WashingMachineUtilizationRate.png")
 
 
 def plot_avg_washing_time_against_total_active_time(female_avg_hrs, male_avg_hrs, female_nbr_washing_instances,
@@ -91,7 +91,7 @@ def plot_avg_washing_time_against_total_active_time(female_avg_hrs, male_avg_hrs
     nbr_ml = len(male_avg_hrs)
 
     fig, ax = plt.subplots()
-    ax.set_title("Average Washing Time")
+    ax.set_title("Washing Machine Utilization Rate")
     ax.set_xlabel("hours per week")
     ax.set_ylabel("active time (in weeks)")
 
@@ -137,8 +137,8 @@ def plot_avg_washing_time_against_total_active_time(female_avg_hrs, male_avg_hrs
     ax.axvline(mean_female, 0.5, 1, color=rgb.tue_red, alpha=1, label=f"mean female: {mean_female:.2f}")
     ax.axvline(mean_male, 0, 0.5, color=rgb.tue_blue, alpha=1, label=f"mean male:    {mean_male:.2f}")
     ax.legend(loc='upper right')
-    fig.savefig(plots_path + "AverageWashingTime_activeTime.pdf")
-    fig.savefig(plots_path + "AverageWashingTime_activeTime.png")
+    fig.savefig(plots_path + "WashingMachineUtilizationRate_activeTime.pdf")
+    fig.savefig(plots_path + "WashingMachineUtilizationRate_activeTime.png")
 
 
 def plot_comparison_of_avg_washing_time(fml_avg_hrs, ml_avg_hrs):
