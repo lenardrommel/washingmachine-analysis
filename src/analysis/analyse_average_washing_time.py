@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from tueplots.constants.color import rgb
+from tueplots import bundles
 import pandas as pd
 
 data_path = "../../data/"
@@ -13,6 +14,8 @@ months = {"DEC": 12, "JAN": 1, "FEB": 2, "MAR": 3, "APR": 4, "MAI": 5, "JUN": 6,
 df = pd.read_csv(csv_name)
 df = df.replace({'month': months})
 df['date'] = pd.to_datetime(df[['year', 'month', 'day']])
+#plt.rcParams.update(bundles.icml2022(usetex=False))
+plt.rcParams["font.family"] = "Times New Roman"
 
 
 def print_number_of_individual_females_males_and_undefined():
@@ -166,7 +169,8 @@ def plot_comparison_of_avg_washing_time(fml_avg_hrs, ml_avg_hrs):
 
     ax.bar(categories, values_females, color=rgb.tue_red, alpha=0.25, label="female")
     ax.bar(categories, values_males, color=rgb.tue_blue, alpha=0.25, label="male")
-    ax.tick_params(axis='x', labelsize=6, rotation=50)
+    ax.tick_params(axis='x', labelsize=8, rotation=50)
+    #ax.tick_params(axis='x', rotation=50)
     ax.legend(loc='upper right')
 
     plt.tight_layout()
