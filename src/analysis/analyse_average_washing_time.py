@@ -50,7 +50,7 @@ def plot_avg_washing_time(female_avg_hrs, male_avg_hrs):
 
     fig, ax = plt.subplots()
     ax.set_title("Washing Machine Utilization Rate")
-    ax.set_xlabel("hours per week")
+    ax.set_xlabel("Hours per Week")
 
     mean_female = np.mean(female_avg_hrs)
     mean_male = np.mean(male_avg_hrs)
@@ -65,24 +65,24 @@ def plot_avg_washing_time(female_avg_hrs, male_avg_hrs):
     u_m = np.random.rand(nbr_ml)
     u_f = np.random.rand(nbr_fml)
     ax.plot(
-        female_avg_hrs, 1 + 0.5 * u_f, "o", label=f"{nbr_fml} female students", color=rgb.tue_red, alpha=0.5,
+        female_avg_hrs, 1 + 0.5 * u_f, "o", label=f"{nbr_fml} Female Students", color=rgb.tue_red, alpha=0.5,
         mec="none", ms=4
     )
 
     ax.plot(
-        male_avg_hrs, 0.5 * u_m, "o", label=f"{nbr_ml} male students", color=rgb.tue_blue, alpha=0.5, mec="none", ms=4
+        male_avg_hrs, 0.5 * u_m, "o", label=f"{nbr_ml} Male Students", color=rgb.tue_blue, alpha=0.5, mec="none", ms=4
     )
 
     # 1,125 / 0.375
     ax.errorbar(mean_female, 1.25, xerr=std_female, capsize=5, color=rgb.tue_red, alpha=0.3, elinewidth=1.1,
-                label=f"std. female:    {std_female:.2f}")
+                label=f"Std. Female:    {std_female:.2f}")
     ax.errorbar(mean_male, 0.25, xerr=std_male, capsize=5, color=rgb.tue_blue, alpha=0.3, elinewidth=1.1,
-                label=f"std. male:       {std_male:.2f}")
+                label=f"Std. Male:       {std_male:.2f}")
 
     ax.axhline(0.75, color=rgb.tue_dark, alpha=0.5)
     ax.yaxis.set_visible(False)
-    ax.axvline(mean_female, 0.51, 1, color=rgb.tue_red, alpha=1, label=f"mean female: {mean_female:.2f}")
-    ax.axvline(mean_male, 0, 0.5, color=rgb.tue_blue, alpha=1, label=f"mean male:    {mean_male:.2f}")
+    ax.axvline(mean_female, 0.51, 1, color=rgb.tue_red, alpha=1, label=f"Mean Female: {mean_female:.2f}")
+    ax.axvline(mean_male, 0, 0.5, color=rgb.tue_blue, alpha=1, label=f"Mean Male:    {mean_male:.2f}")
     ax.legend(loc='center right', framealpha=1.0, facecolor='white', edgecolor='black')
     fig.savefig(plots_path + "WashingMachineUtilizationRate.pdf")
     fig.savefig(plots_path + "WashingMachineUtilizationRate.png")
@@ -95,8 +95,8 @@ def plot_avg_washing_time_against_total_active_time(female_avg_hrs, male_avg_hrs
 
     fig, ax = plt.subplots()
     ax.set_title("Washing Machine Utilization Rate")
-    ax.set_xlabel("hours per week")
-    ax.set_ylabel("active time (in weeks)")
+    ax.set_xlabel("Hours per Week")
+    ax.set_ylabel("Active Time (in weeks)")
 
     mean_female = np.mean(female_avg_hrs)
     mean_male = np.mean(male_avg_hrs)
@@ -106,22 +106,22 @@ def plot_avg_washing_time_against_total_active_time(female_avg_hrs, male_avg_hrs
     distance_to_line = 10
 
     ax.plot(
-        female_avg_hrs, 60 + 1 * distance_to_line + female_nbr_washing_instances, "o", label=f"{nbr_fml} females",
+        female_avg_hrs, 60 + 1 * distance_to_line + female_nbr_washing_instances, "o", label=f"{nbr_fml} Females",
         color=rgb.tue_red, alpha=0.5,
         mec="none", ms=4
     )
 
     ax.plot(
-        male_avg_hrs, male_nbr_washing_instances, "o", label=f"{nbr_ml} males", color=rgb.tue_blue, alpha=0.5,
+        male_avg_hrs, male_nbr_washing_instances, "o", label=f"{nbr_ml} Males", color=rgb.tue_blue, alpha=0.5,
         mec="none", ms=4
     )
 
     # 1,125 / 0.375
     ax.errorbar(mean_female, 60 + 52 / 2 + distance_to_line, xerr=std_female, capsize=5, color=rgb.tue_red, alpha=0.3,
                 elinewidth=1.1,
-                label=f"std. female:    {std_female:.2f}")
+                label=f"Std. Female:    {std_female:.2f}")
     ax.errorbar(mean_male, 52 / 2, xerr=std_male, capsize=5, color=rgb.tue_blue, alpha=0.3, elinewidth=1.1,
-                label=f"std. male:       {std_male:.2f}")
+                label=f"Std. Male:       {std_male:.2f}")
 
     ax.axhline(60 + distance_to_line, color=rgb.tue_dark, alpha=0.5)
     ax.yaxis.set_visible(True)
@@ -137,8 +137,8 @@ def plot_avg_washing_time_against_total_active_time(female_avg_hrs, male_avg_hrs
     ax.set_xticks(x_values_grid, labels_x)
     ax.grid(True, linestyle=':')
 
-    ax.axvline(mean_female, 0.5, 1, color=rgb.tue_red, alpha=1, label=f"mean female: {mean_female:.2f}")
-    ax.axvline(mean_male, 0, 0.5, color=rgb.tue_blue, alpha=1, label=f"mean male:    {mean_male:.2f}")
+    ax.axvline(mean_female, 0.5, 1, color=rgb.tue_red, alpha=1, label=f"Mean Female: {mean_female:.2f}")
+    ax.axvline(mean_male, 0, 0.5, color=rgb.tue_blue, alpha=1, label=f"Mean Male:    {mean_male:.2f}")
     ax.legend(loc='upper right')
     fig.savefig(plots_path + "WashingMachineUtilizationRate_activeTime.pdf")
     fig.savefig(plots_path + "WashingMachineUtilizationRate_activeTime.png")
@@ -147,8 +147,8 @@ def plot_avg_washing_time_against_total_active_time(female_avg_hrs, male_avg_hrs
 def plot_comparison_of_avg_washing_time(fml_avg_hrs, ml_avg_hrs):
     fig, ax = plt.subplots()
     ax.set_title("Comparison of Washing Machine Utilization Rate")
-    ax.set_xlabel("hours per week")
-    ax.set_ylabel("percentage")
+    ax.set_xlabel("Hours per Week")
+    ax.set_ylabel("Percentage (%)")
     nbr_females = len(fml_avg_hrs)
     nbr_males = len(ml_avg_hrs)
     categories = ['0-0.25', '0.25-0.5', '0.5-0.75', '0.75-1.0',
@@ -164,11 +164,11 @@ def plot_comparison_of_avg_washing_time(fml_avg_hrs, ml_avg_hrs):
         upper_bound = lower_bound + 0.25
         nbr_females_in_range = len(fml_avg_hrs[np.logical_and(fml_avg_hrs >= lower_bound, fml_avg_hrs < upper_bound)])
         nbr_males_in_range = len(ml_avg_hrs[np.logical_and(ml_avg_hrs >= lower_bound, ml_avg_hrs < upper_bound)])
-        values_females.append(nbr_females_in_range / nbr_females)
-        values_males.append(nbr_males_in_range / nbr_males)
+        values_females.append((nbr_females_in_range / nbr_females)*100)
+        values_males.append((nbr_males_in_range / nbr_males)*100)
 
-    ax.bar(categories, values_females, color=rgb.tue_red, alpha=0.25, label="female")
-    ax.bar(categories, values_males, color=rgb.tue_blue, alpha=0.25, label="male")
+    ax.bar(categories, values_females, color=rgb.tue_red, alpha=0.25, label="Female")
+    ax.bar(categories, values_males, color=rgb.tue_blue, alpha=0.25, label="Male")
     ax.tick_params(axis='x', labelsize=8, rotation=50)
     #ax.tick_params(axis='x', rotation=50)
     ax.legend(loc='upper right')
@@ -198,7 +198,6 @@ def permutation_test(female_avg_hrs, male_avg_hrs, operation, num_permutations=1
         permuted_diffs[i] = operation(randomly_assigned_males, randomly_assigned_females)
 
     # percentage of permutations at least as extreme as observed
-    # TODO: Ask whether to use absolute values!
     p_value = np.sum(np.abs(permuted_diffs) >= np.abs(observed_diff)) / num_permutations
     return p_value
 
