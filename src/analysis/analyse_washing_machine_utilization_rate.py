@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from tueplots.constants.color import rgb
-from tueplots import bundles
 import pandas as pd
 
 data_path = "../../data/"
@@ -14,7 +13,6 @@ months = {"DEC": 12, "JAN": 1, "FEB": 2, "MAR": 3, "APR": 4, "MAI": 5, "JUN": 6,
 df = pd.read_csv(csv_name)
 df = df.replace({'month': months})
 df['date'] = pd.to_datetime(df[['year', 'month', 'day']])
-#plt.rcParams.update(bundles.icml2022(usetex=False))
 plt.rcParams["font.family"] = "Times New Roman"
 
 
@@ -44,7 +42,7 @@ def create_data_for_individuals():
     return df_individual_female, df_individual_male
 
 
-def plot_avg_washing_time(female_avg_hrs, male_avg_hrs):
+def plot_utilization_rate(female_avg_hrs, male_avg_hrs):
     nbr_fml = len(female_avg_hrs)
     nbr_ml = len(male_avg_hrs)
 
@@ -75,20 +73,20 @@ def plot_avg_washing_time(female_avg_hrs, male_avg_hrs):
 
     # 1,125 / 0.375
     ax.errorbar(mean_female, 1.25, xerr=std_female, capsize=5, color=rgb.tue_red, alpha=0.3, elinewidth=1.1,
-                label=f"Std. Female:    {std_female:.2f}")
+                label=f"Std. Female")
     ax.errorbar(mean_male, 0.25, xerr=std_male, capsize=5, color=rgb.tue_blue, alpha=0.3, elinewidth=1.1,
-                label=f"Std. Male:       {std_male:.2f}")
+                label=f"Std. Male")
 
     ax.axhline(0.75, color=rgb.tue_dark, alpha=0.5)
     ax.yaxis.set_visible(False)
-    ax.axvline(mean_female, 0.51, 1, color=rgb.tue_red, alpha=1, label=f"Mean Female: {mean_female:.2f}")
-    ax.axvline(mean_male, 0, 0.5, color=rgb.tue_blue, alpha=1, label=f"Mean Male:    {mean_male:.2f}")
+    ax.axvline(mean_female, 0.51, 1, color=rgb.tue_red, alpha=1, label=f"Mean Female")
+    ax.axvline(mean_male, 0, 0.5, color=rgb.tue_blue, alpha=1, label=f"Mean Male")
     ax.legend(loc='center right', framealpha=1.0, facecolor='white', edgecolor='black')
     fig.savefig(plots_path + "WashingMachineUtilizationRate.pdf")
     fig.savefig(plots_path + "WashingMachineUtilizationRate.png")
 
 
-def plot_avg_washing_time_against_total_active_time(female_avg_hrs, male_avg_hrs, female_nbr_washing_instances,
+def plot_utilization_rate_against_total_active_time(female_avg_hrs, male_avg_hrs, female_nbr_washing_instances,
                                                     male_nbr_washing_instances):
     nbr_fml = len(female_avg_hrs)
     nbr_ml = len(male_avg_hrs)
@@ -119,9 +117,9 @@ def plot_avg_washing_time_against_total_active_time(female_avg_hrs, male_avg_hrs
     # 1,125 / 0.375
     ax.errorbar(mean_female, 60 + 52 / 2 + distance_to_line, xerr=std_female, capsize=5, color=rgb.tue_red, alpha=0.3,
                 elinewidth=1.1,
-                label=f"Std. Female:    {std_female:.2f}")
+                label=f"Std. Female")
     ax.errorbar(mean_male, 52 / 2, xerr=std_male, capsize=5, color=rgb.tue_blue, alpha=0.3, elinewidth=1.1,
-                label=f"Std. Male:       {std_male:.2f}")
+                label=f"Std. Male")
 
     ax.axhline(60 + distance_to_line, color=rgb.tue_dark, alpha=0.5)
     ax.yaxis.set_visible(True)
@@ -137,14 +135,14 @@ def plot_avg_washing_time_against_total_active_time(female_avg_hrs, male_avg_hrs
     ax.set_xticks(x_values_grid, labels_x)
     ax.grid(True, linestyle=':')
 
-    ax.axvline(mean_female, 0.5, 1, color=rgb.tue_red, alpha=1, label=f"Mean Female: {mean_female:.2f}")
-    ax.axvline(mean_male, 0, 0.5, color=rgb.tue_blue, alpha=1, label=f"Mean Male:    {mean_male:.2f}")
+    ax.axvline(mean_female, 0.5, 1, color=rgb.tue_red, alpha=1, label=f"Mean Female")
+    ax.axvline(mean_male, 0, 0.5, color=rgb.tue_blue, alpha=1, label=f"Mean Male")
     ax.legend(loc='upper right')
     fig.savefig(plots_path + "WashingMachineUtilizationRate_activeTime.pdf")
     fig.savefig(plots_path + "WashingMachineUtilizationRate_activeTime.png")
 
 
-def plot_comparison_of_avg_washing_time(fml_avg_hrs, ml_avg_hrs):
+def plot_comparison_of_utilization_rate(fml_avg_hrs, ml_avg_hrs):
     fig, ax = plt.subplots()
     ax.set_title("Comparison of Washing Machine Utilization Rate")
     ax.set_xlabel("Hours per Week")
@@ -170,7 +168,6 @@ def plot_comparison_of_avg_washing_time(fml_avg_hrs, ml_avg_hrs):
     ax.bar(categories, values_females, color=rgb.tue_red, alpha=0.25, label="Female")
     ax.bar(categories, values_males, color=rgb.tue_blue, alpha=0.25, label="Male")
     ax.tick_params(axis='x', labelsize=8, rotation=50)
-    #ax.tick_params(axis='x', rotation=50)
     ax.legend(loc='upper right')
 
     plt.tight_layout()
@@ -242,10 +239,10 @@ if __name__ == "__main__":
     active_time_in_weeks_male = np.array(df_individual_males['active_time_in_weeks'])
 
     # create plots
-    plot_avg_washing_time(avg_hours_per_week_female, avg_hours_per_week_male)
-    plot_avg_washing_time_against_total_active_time(avg_hours_per_week_female, avg_hours_per_week_male,
+    plot_utilization_rate(avg_hours_per_week_female, avg_hours_per_week_male)
+    plot_utilization_rate_against_total_active_time(avg_hours_per_week_female, avg_hours_per_week_male,
                                                     active_time_in_weeks_female, active_time_in_weeks_male)
-    plot_comparison_of_avg_washing_time(avg_hours_per_week_female, avg_hours_per_week_male)
+    plot_comparison_of_utilization_rate(avg_hours_per_week_female, avg_hours_per_week_male)
 
     # permutation test on mean and std
     p_value_mean_difference = permutation_test(avg_hours_per_week_female, avg_hours_per_week_male, mean_difference)
