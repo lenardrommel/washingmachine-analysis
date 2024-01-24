@@ -1,0 +1,15 @@
+name: base
+dependencies:
+  - python=3.10
+  - matplotlib
+  - pandas
+  - seaborn
+  - scipy
+  - yaml
+  - pyyaml
+  - graphviz
+  - ffmpeg
+  - numba
+  - jupyter
+  - scikit-learn
+  - tqdm
