@@ -4,9 +4,11 @@ from tueplots.constants.color import rgb
 from tueplots import bundles
 import pandas as pd
 
-data_path = "../../data/"
+data_path = "../data/"
 csv_name = data_path + "anonymized.csv"
-plots_path = "../../plots/"
+plots_path = "../plots/"
+
+RESOLUTION = 200
 
 months = {"DEC": 12, "JAN": 1, "FEB": 2, "MAR": 3, "APR": 4, "MAI": 5, "JUN": 6, "JUL": 7, "AUG": 8, "SEP": 9,
           "OKT": 10, "NOV": 11, "DEZ": 12}
@@ -44,7 +46,7 @@ def create_data_for_individuals():
     return df_individual_female, df_individual_male
 
 
-def plot_avg_washing_time(female_avg_hrs, male_avg_hrs):
+def plot_avg_washing_time(female_avg_hrs, male_avg_hrs, resolution):
     nbr_fml = len(female_avg_hrs)
     nbr_ml = len(male_avg_hrs)
 
@@ -84,12 +86,12 @@ def plot_avg_washing_time(female_avg_hrs, male_avg_hrs):
     ax.axvline(mean_female, 0.51, 1, color=rgb.tue_red, alpha=1, label=f"Mean Female: {mean_female:.2f}")
     ax.axvline(mean_male, 0, 0.5, color=rgb.tue_blue, alpha=1, label=f"Mean Male:    {mean_male:.2f}")
     ax.legend(loc='center right', framealpha=1.0, facecolor='white', edgecolor='black')
-    fig.savefig(plots_path + "WashingMachineUtilizationRate.pdf")
-    fig.savefig(plots_path + "WashingMachineUtilizationRate.png")
+    fig.savefig(plots_path + "WashingMachineUtilizationRate.pdf", dpi=resolution)
+    fig.savefig(plots_path + "WashingMachineUtilizationRate.png", dpi=resolution)
 
 
 def plot_avg_washing_time_against_total_active_time(female_avg_hrs, male_avg_hrs, female_nbr_washing_instances,
-                                                    male_nbr_washing_instances):
+                                                    male_nbr_washing_instances, resolution):
     nbr_fml = len(female_avg_hrs)
     nbr_ml = len(male_avg_hrs)
 
@@ -140,11 +142,11 @@ def plot_avg_washing_time_against_total_active_time(female_avg_hrs, male_avg_hrs
     ax.axvline(mean_female, 0.5, 1, color=rgb.tue_red, alpha=1, label=f"Mean Female: {mean_female:.2f}")
     ax.axvline(mean_male, 0, 0.5, color=rgb.tue_blue, alpha=1, label=f"Mean Male:    {mean_male:.2f}")
     ax.legend(loc='upper right')
-    fig.savefig(plots_path + "WashingMachineUtilizationRate_activeTime.pdf")
-    fig.savefig(plots_path + "WashingMachineUtilizationRate_activeTime.png")
+    fig.savefig(plots_path + "WashingMachineUtilizationRate_activeTime.pdf", dpi=resolution)
+    fig.savefig(plots_path + "WashingMachineUtilizationRate_activeTime.png", dpi=resolution)
 
 
-def plot_comparison_of_avg_washing_time(fml_avg_hrs, ml_avg_hrs):
+def plot_comparison_of_avg_washing_time(fml_avg_hrs, ml_avg_hrs, resolution):
     fig, ax = plt.subplots()
     ax.set_title("Comparison of Washing Machine Utilization Rate")
     ax.set_xlabel("Hours per Week")
@@ -175,8 +177,8 @@ def plot_comparison_of_avg_washing_time(fml_avg_hrs, ml_avg_hrs):
 
     plt.tight_layout()
 
-    fig.savefig(plots_path + "Comparison_Utilization_Rate.pdf")
-    fig.savefig(plots_path + "Comparison_Utilization_Rate.png")
+    fig.savefig(plots_path + "Comparison_Utilization_Rate.pdf", dpi=resolution)
+    fig.savefig(plots_path + "Comparison_Utilization_Rate.png", dpi=resolution)
 
 
 def permutation_test(female_avg_hrs, male_avg_hrs, operation, num_permutations=10000):
@@ -242,10 +244,10 @@ if __name__ == "__main__":
     active_time_in_weeks_male = np.array(df_individual_males['active_time_in_weeks'])
 
     # create plots
-    plot_avg_washing_time(avg_hours_per_week_female, avg_hours_per_week_male)
+    plot_avg_washing_time(avg_hours_per_week_female, avg_hours_per_week_male, resolution=RESOLUTION)
     plot_avg_washing_time_against_total_active_time(avg_hours_per_week_female, avg_hours_per_week_male,
-                                                    active_time_in_weeks_female, active_time_in_weeks_male)
-    plot_comparison_of_avg_washing_time(avg_hours_per_week_female, avg_hours_per_week_male)
+                                                    active_time_in_weeks_female, active_time_in_weeks_male, resolution=RESOLUTION)
+    plot_comparison_of_avg_washing_time(avg_hours_per_week_female, avg_hours_per_week_male, resolution=RESOLUTION)
 
     # permutation test on mean and std
     p_value_mean_difference = permutation_test(avg_hours_per_week_female, avg_hours_per_week_male, mean_difference)
