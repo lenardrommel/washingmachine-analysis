@@ -15,24 +15,57 @@ An examination of preferred washing time indicates no significant differences be
 Further analysis of the washing machine utilization rate shows that, while there is no significant difference in the average rate between female and male students, male students exhibit a stronger tendency toward extreme washing rates compared to their female counterparts. A permutation test, yielding a p-value of 0.04, indicates a statistical significance of this difference.
 
 ## Installation and Prerequisites
-- Clone this repo with `git clone git@github.com:lenardrommel/washingmachine-analysis.git`
-  - You may have to [generate SSH keys](https://kinsta.com/blog/generate-ssh-key/): `ssh-keygen -t ed25519 -C "firstname.lastname@student.uni-tuebingen.de"`if you cannot clone the repo
-  - Important: Do not enter a passphrase when generating the SSH keys, this will simplify the setup
-  - Important: Do not use `sudo` when creating the keys, otherwise the keys will be stored in the root directory (`/root/.ssh/` and not in your home directory `~/.ssh/`)
-  - Move to the repo: `cd washingmachine-analysis`
-- Create new environment with `conda env create -file=envs\all.yaml`
-- Activate the environment with `conda activate washing-machine`
+I doubt that anyone without sufficient knowledge reads this. 
+But since this is a public repository I will explain the following steps in detail so that people with little knowledge have easy access.
+Go to your IDE and open a new project. You can call it `washingmachine-analysis`.
 
-## Project set up
-This project has a simple structure. For overview we have a `data` directory with the original anonomized data, 
-for the environment we have an `envs` directory. You don't need to access these directory. So please ignore them.
-We save every plot in `plots` for obvious reasons. The code for our project you can find in `analysis`.
-Here we have two options for you:
-- Everything is put together in one jupyter-notebook `main`, easy accessible.
-- We also have the original code from each group member.
+Open up a (new) terminal in your IDE and navigate to the new project you ideally called `washingmachine-analysis`.
+Then please obey the following steps (you can copy the contents of each box to your terminal). 
+
+### Clone Repository
+Clone this repo with:
+```bash
+git clone git@github.com:lenardrommel/washingmachine-analysis.git
+```
+### SSH Key Generation
+If you encounter issues cloning the repository, consider [generating SSH keys](https://kinsta.com/blog/generate-ssh-key/):
+```bash
+ssh-keygen -t ed25519 -C "firstname.lastname@student.uni-tuebingen.de"
+```
+- Important: Do not enter a passphrase when generating the SSH keys, this will simplify the setup
+- Important: Do not use `sudo` when creating the keys, otherwise the keys will be stored in the root directory (`/root/.ssh/` and not in your home directory `~/.ssh/`)
+- If you are not already there move to the repo: 
+```bash
+cd washingmachine-analysis
+```
+
+### Environment Setup
+This project was implemented in Python 3.10. Here is a tutorial of [how to update python](https://ioflood.com/blog/update-python-step-by-step-guide/).
+
+Create a new environment with:
+```bash
+conda env create -file=envs\all.yaml
+```
+Activate the environment:
+```bash
+conda activate washing-machine
+```
+
+Now you should be able to run the complete code in your IDE.
+
+
+## Project Setup
+The project structure is straightforward. The `data` directory holds the original anonymized data, 
+while `envs` manages the environment. Feel free to ignore these directories.
+Plots are stored in `plots`. The primary code resides in the `analysis` directory, offering two convenient options:
+- **All-in-One Jupyter Notebook:** `main.ipynb`
+- **Individual Code Files:**
   - Judith Henkel: `analyse_average_washing_time.py`
   - Lenard Rommel: `firstVisualization.ipynb`
   - Nalin Puvendran & Kevin Weiss: `washing_time_usage.ipynb`
 
 ## Enjoy!
+Feel free to explore the project and analyze the washing machine data. If you have any questions or issues, don't hesitate to reach out. Happy analyzing!
 
+
+![Alt text](https://github.com/lenardrommel/washingmachine-analysis/blob/main/plots/data-for-year.png)
