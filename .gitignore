@@ -7,9 +7,9 @@ __pycache__/
 *.so
 
 # Graphic content
-# *.png
-# *.pdf
-# *.jpg
+*.png
+*.pdf
+*.jpg
 
 # Distribution / packaging
 .Python

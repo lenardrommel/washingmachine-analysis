@@ -1,4 +1,4 @@
-name: base
+name: washing-machine
 dependencies:
   - python=3.10
   - matplotlib
