@@ -19,10 +19,12 @@ def preprocessing(data_frame, date_format):
 
     # Copying the dataframe to
     data_frame = dc(data_frame)
-    try:
-        # Taking the cleaning lady out of the data set, since she is not a student
-        data_frame = data_frame[data_frame['pseudonym'] != 'Putzfrau']
 
+    # Taking the cleaning lady out of the data set, since she is not a student
+    data_frame = data_frame[data_frame['pseudonym'] != 'Putzfrau']
+
+
+    try:
         # Converting the date format to a convenient datetime structure
         data_frame.insert(2, 'date', '')
         data_frame['date'] = pd.to_datetime(data_frame['day'].astype(str) + ' ' + data_frame['month'] + ' ' + data_frame['year'].astype(str), format=date_format)
