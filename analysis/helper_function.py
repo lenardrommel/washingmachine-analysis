@@ -1,5 +1,6 @@
 import pandas as pd
 from copy import deepcopy as dc
+import numpy as np
 
 def preprocessing(data_frame, date_format):
     '''
@@ -26,8 +27,6 @@ def preprocessing(data_frame, date_format):
         data_frame.insert(2, 'date', '')
         data_frame['date'] = pd.to_datetime(data_frame['day'].astype(str) + ' ' + data_frame['month'] + ' ' + data_frame['year'].astype(str), format=date_format)
 
-        # Drop redundant columns
-        data_frame = data_frame.drop(columns=['day', 'month', 'year', 'start_time', 'end_time'])
 
     except:
         months = {"DEC": 12, "JAN": 1, "FEB": 2, "MAR": 3, "APR": 4, "MAI": 5, "JUN": 6, "JUL": 7, "AUG": 8, "SEP": 9,
@@ -35,4 +34,13 @@ def preprocessing(data_frame, date_format):
         data_frame = data_frame.replace({'month': months})
         data_frame['date'] = pd.to_datetime(data_frame[['year', 'month', 'day']])
 
+    # Drop redundant columns
+    data_frame = data_frame.drop(columns=['day', 'month', 'year'])
+
     return data_frame
+
+
+
+
+
+
