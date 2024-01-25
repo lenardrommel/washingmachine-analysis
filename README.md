@@ -69,3 +69,5 @@ Feel free to explore the project and analyze the washing machine data. If you ha
 
 
 ![Alt text](https://github.com/lenardrommel/washingmachine-analysis/blob/main/plots/data-for-year.png)
+
+Histogram of the washing data for the whole year with highlighted holidays and moving average.
