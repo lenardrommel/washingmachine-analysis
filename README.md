@@ -46,7 +46,7 @@ This project was implemented in Python 3.10. Here is a tutorial of [how to updat
 
 Create a new environment with:
 ```bash
-conda env create -file=envs\all.yaml
+conda env create -file=envs/all.yaml
 ```
 Activate the environment:
 ```bash
