@@ -45,7 +45,7 @@ def create_data_for_individuals():
 
 
 
-def plot_avg_washing_time(female_avg_hrs, male_avg_hrs, resolution):
+def plot_utilization_rate(female_avg_hrs, male_avg_hrs, resolution):
     nbr_fml = len(female_avg_hrs)
     nbr_ml = len(male_avg_hrs)
 
@@ -90,7 +90,7 @@ def plot_avg_washing_time(female_avg_hrs, male_avg_hrs, resolution):
 
 
 
-def plot_avg_washing_time_against_total_active_time(female_avg_hrs, male_avg_hrs, female_nbr_washing_instances,
+def plot_utilization_rate_against_total_active_time(female_avg_hrs, male_avg_hrs, female_nbr_washing_instances,
                                                     male_nbr_washing_instances, resolution):
 
     nbr_fml = len(female_avg_hrs)
@@ -147,8 +147,7 @@ def plot_avg_washing_time_against_total_active_time(female_avg_hrs, male_avg_hrs
     fig.savefig(plots_path + "WashingMachineUtilizationRate_activeTime.png", dpi=resolution)
 
 
-def plot_comparison_of_avg_washing_time(fml_avg_hrs, ml_avg_hrs, resolution):
-
+def plot_comparison_of_utilization_rate(fml_avg_hrs, ml_avg_hrs, resolution):
     fig, ax = plt.subplots()
     ax.set_title("Comparison of Washing Machine Utilization Rate")
     ax.set_xlabel("Hours per Week")
@@ -245,10 +244,10 @@ if __name__ == "__main__":
     active_time_in_weeks_male = np.array(df_individual_males['active_time_in_weeks'])
 
     # create plots
-    plot_avg_washing_time(avg_hours_per_week_female, avg_hours_per_week_male, resolution=RESOLUTION)
-    plot_avg_washing_time_against_total_active_time(avg_hours_per_week_female, avg_hours_per_week_male,
+    plot_utilization_rate(avg_hours_per_week_female, avg_hours_per_week_male, resolution=RESOLUTION)
+    plot_utilization_rate_against_total_active_time(avg_hours_per_week_female, avg_hours_per_week_male,
                                                     active_time_in_weeks_female, active_time_in_weeks_male, resolution=RESOLUTION)
-    plot_comparison_of_avg_washing_time(avg_hours_per_week_female, avg_hours_per_week_male, resolution=RESOLUTION)
+    plot_comparison_of_utilization_rate(avg_hours_per_week_female, avg_hours_per_week_male, resolution=RESOLUTION)
 
 
     # permutation test on mean and std
