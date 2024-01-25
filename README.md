@@ -8,7 +8,7 @@ A group project for [Philipp Hennig's](https://uni-tuebingen.de/fakultaeten/math
 
 Full report: https://www.overleaf.com/read/fxhfdfpqspwd#384f75
 
-If you have questions or ideas please contact me via mail [Lenard Rommel](lenardrommel@icloud.com).
+If you have questions or ideas please contact me via mail [Lenard Rommel](mailto:lenardrommel@icloud.com?subject=[GitHub:Data Literacy]%20Source%20Han%20Sans).
 
 ## Abstract
 The objective of this paper is to identify washing machine usage patterns among university students and determine if there are significant differences in those patterns between female and male students. The analysis utilizes a data set gathered from a washing machine booking system of a student dorm.
