@@ -175,7 +175,7 @@ def plot_comparison_of_utilization_rate(fml_avg_hrs, ml_avg_hrs, resolution):
     ax.tick_params(axis='x', labelsize=8, rotation=50)
     ax.legend(loc='upper right')
 
-    plt.tight_layout()
+    # plt.tight_layout()
 
     fig.savefig(plots_path + "Comparison_Utilization_Rate.pdf", dpi=resolution)
     fig.savefig(plots_path + "Comparison_Utilization_Rate.png", dpi=resolution)
