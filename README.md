@@ -11,10 +11,7 @@ Full report: https://www.overleaf.com/read/fxhfdfpqspwd#384f75
 If you have questions or ideas please contact me via mail [Lenard Rommel](mailto:lenardrommel@icloud.com?subject=[GitHub]%20Data%20Literacy).
 
 ## Abstract
-The objective of this paper is to identify washing machine usage patterns among university students and determine if there are significant differences in those patterns between female and male students. The analysis utilizes a data set gathered from a washing machine booking system of a student dorm.
-The initial visualization reveals an expected downward trend in washing machine usage during semester breaks.
-An examination of preferred washing time indicates no significant differences between female and male students, both in terms of preferred days and preferred times of the day.
-Further analysis of the washing machine utilization rate shows that, while there is no significant difference in the average rate between female and male students, male students exhibit a stronger tendency toward extreme washing rates compared to their female counterparts. A permutation test, yielding a p-value of 0.04, indicates a statistical significance of this difference.
+The objective of this paper is to identify gender-specific washing machine usage patterns among university students. A visualization of the washing activity over a year shows an expected downward trend in washing machine usage during semester breaks. The analysis of gender-specific differences in washing machine utilization reveals that, while there are no significant differences in terms of weekday or time of the day when students do their laundry, male students seem to exhibit a stronger tendency toward extreme washing rates (measured in number of hours per week they use the washing machines) compared to their female counterparts. A permutation test, yielding a p-value of 0.04, indicates a statistical significance of this difference.
 
 ## Installation and Prerequisites
 I doubt that anyone without sufficient knowledge reads this. 
